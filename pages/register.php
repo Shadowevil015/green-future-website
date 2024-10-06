@@ -1,10 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
-    header('Location: login.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +40,27 @@ if (!isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
             </div>
         </div>
 </nav>
+
+<form action="../utils/register.php" method="POST">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+        </div>
+    </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 
 </div>
 </body>

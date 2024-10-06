@@ -52,7 +52,7 @@ if (isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
 <div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-4">
-<form action="utils/login.php" method="POST">
+<form action="../utils/login.php" method="POST">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -62,7 +62,7 @@ if (isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
   <button type="submit" class="btn btn-success">Sign In</button>
-  <a class="btn btn-info" href="pages/register.php" role="button">Register</a>
+  <a class="btn btn-info" href="register.php" role="button">Register</a>
 </form>
 </div>
 <div class="col-md-4"></div>
