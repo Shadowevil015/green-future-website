@@ -29,15 +29,15 @@ session_start();
                         <a class="nav-link active" aria-current="page" href="#">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="calculator.php">Carbon Footprint Calculator</a>
+                        <a class="nav-link" href="pages/calculator.php">Carbon Footprint Calculator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.php">Events</a>
+                        <a class="nav-link" href="pages/events.php">Events</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a class="nav-link" href="pages/login.php">Login</a>
                     </li>
                 </ul>
             </div>

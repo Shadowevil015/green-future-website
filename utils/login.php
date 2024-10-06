@@ -25,7 +25,7 @@ if ($statement = $conn->prepare("SELECT uid, password FROM accounts WHERE email_
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $emaildb;
             $_SESSION['uid'] = $uid;
-            header('Location: ../events.php');
+            header('Location: ../pages/events.php');
         } else {
             echo 'Incorrect username and password!';
         }

@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 ?>
 
@@ -22,8 +22,8 @@ if (isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
 <div class="container">
 <nav class="navbar navbar-expand-lg maven-pro sticky-top bg-white" style="font-size:larger">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/environment-icon.svg" alt="logo" width="56" height="56">
+            <a class="navbar-brand" href="../index.php">
+                <img src="../assets/environment-icon.svg" alt="logo" width="56" height="56">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@ if (isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">About Us</a>
+                        <a class="nav-link" href="../index.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="calculator.php">Carbon Footprint Calculator</a>
@@ -61,7 +61,8 @@ if (isset($_SESSION['loggedin']) && !$_SESSION[TRUE]) {
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
-  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="submit" class="btn btn-success">Sign In</button>
+  <a class="btn btn-info" href="pages/register.php" role="button">Register</a>
 </form>
 </div>
 <div class="col-md-4"></div>
