@@ -13,5 +13,3 @@ function CloseCon($conn)
 {
     $conn->close();
 }
-
-$test = OpenCon();
