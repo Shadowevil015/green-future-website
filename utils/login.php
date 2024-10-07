@@ -20,7 +20,7 @@ if ($statement = $conn->prepare("SELECT uid, password FROM accounts WHERE email_
         $statement->bind_result($uid, $passworddb);
         $statement->fetch();
 
-        if ($password === $passworddb) {
+        if (password_verify($password, $passworddb)) {
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $emaildb;

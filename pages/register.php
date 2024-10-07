@@ -54,7 +54,7 @@ if (isset($_SESSION['uid'])) {
         <div class="col-4">
             <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="FirstName">
+            <input required type="text" class="form-control" id="firstName" name="firstName" aria-describedby="FirstName">
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@ if (isset($_SESSION['uid'])) {
         <div class="col-4">
             <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="LastName">
+            <input type="text" required class="form-control" id="lastName" name="lastName" aria-describedby="LastName">
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@ if (isset($_SESSION['uid'])) {
         <div class="col-4">
             <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="EmailAddress">
+            <input type="email" required class="form-control" id="email" name="email" aria-describedby="EmailAddress">
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@ if (isset($_SESSION['uid'])) {
         <div class="col-4">
             <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" aria-describedby="password">
+            <input type="password" required class="form-control" id="password" name="password" aria-describedby="password">
             </div>
         </div>
     </div>

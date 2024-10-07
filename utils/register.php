@@ -6,6 +6,8 @@ $lastName = ucfirst($_POST['lastName']);
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+$password = password_hash($password, PASSWORD_DEFAULT);
+
 $conn = OpenCon();
 
 $statement = $conn->prepare('INSERT INTO accounts (first_name, last_name, email_address, password) VALUES (?, ?, ?, ?)');
