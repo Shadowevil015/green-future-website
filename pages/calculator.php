@@ -44,4 +44,6 @@ session_start();
         </div>
 </nav>
 <iframe style="height: 730px; width: 100%;" src="https://sustainabletravel.org/wp-content/plugins/sti_client/src/shortcode/shortcode.php?api_key=STIKEY_6702d09521024839326853&primary_color=%23000000&secondary_color=%23ffffff&light_primary_color=%23cccccc&sort_order=Car"></iframe></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>

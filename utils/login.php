@@ -7,7 +7,7 @@ $conn = OpenCon();
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-if (!isset($email, $password)) {
+if (($email === "" || $password === "")) {
     exit("Please fill out both fields!");
 }
 

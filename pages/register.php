@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (isset($_SESSION['uid'])) {
+    header('Location: ../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +31,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">About Us</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="calculator.php">Carbon Footprint Calculator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Events</a>
+                        <a class="nav-link" href="events.php">Events</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -45,22 +53,46 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="FirstName">
             </div>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-4">
             <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="LastName">
             </div>
         </div>
     </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="EmailAddress">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="password">
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4 justify-content-center">
+            <div class="mb-3 justify-content-center">
+            <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
 </form>
 
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>

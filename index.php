@@ -35,11 +35,20 @@ session_start();
                         <a class="nav-link" href="pages/events.php">Events</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ms-auto">
+                <?php
+                  if(!isset($_SESSION['uid'])) {
+                    echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="pages/login.php">Login</a>
                     </li>
-                </ul>
+                </ul>';
+                  } else {
+                    echo '<ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="utils/logout.php">Log Out</a>
+                    </li>
+                </ul>';
+                  } ?>
             </div>
         </div>
 </nav>
