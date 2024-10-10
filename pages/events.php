@@ -20,10 +20,31 @@ $uid = $_SESSION['uid'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
     <style> body {font-family:"Maven Pro", sans-serif;}</style>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+    const htmlElement = document.documentElement;
+    const switchElement = document.getElementById('darkModeSwitch');
+
+    // Set the default theme to dark if no setting is found in local storage
+    const currentTheme = localStorage.getItem('bsTheme') || 'dark';
+    htmlElement.setAttribute('data-bs-theme', currentTheme);
+    switchElement.checked = currentTheme === 'dark';
+
+    switchElement.addEventListener('change', function () {
+        if (this.checked) {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('bsTheme', 'dark');
+        } else {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('bsTheme', 'light');
+        }
+    });
+});
+    </script>
 </head>
 <body>
 <div class="container">
-<nav class="navbar navbar-expand-lg maven-pro sticky-top bg-white" style="font-size:larger">
+<nav class="navbar navbar-expand-lg maven-pro sticky-top" style="font-size:larger">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
                 <img src="../assets/environment-icon.svg" alt="logo" width="56" height="56">
@@ -43,20 +64,27 @@ $uid = $_SESSION['uid'];
                         <a class="nav-link active" aria-current="page" href="#">Events</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ms-auto">
                 <?php
                   if(!isset($_SESSION['uid'])) {
-                    echo '<ul class="navbar-nav ms-auto">
+                    echo '
                     <li class="nav-item">
                         <a class="nav-link" href="pages/login.php">Login</a>
-                    </li>
-                </ul>';
+                    </li>';
                   } else {
                     echo '<ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="utils/logout.php">Log Out</a>
-                    </li>
-                </ul>';
+                    </li>';
                   } ?>
+                    <li class="nav-item ps-2">
+                      <!-- Bootstrap 5 switch -->
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
+                        <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+                      </div>
+                    </li>
+                  </ul>
             </div>
         </div>
 </nav>
@@ -64,44 +92,24 @@ $uid = $_SESSION['uid'];
 <div class="row mt-4 justify-content-center">
     <div class="col-md-3">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-1.jpg" class="card-img" alt="...">
         </div>
     </div>
     <div class="col-md-3">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-2.jpeg" height="202.66" class="card-img-top" alt="...">
         </div>
     </div>
     <div class="col-md-3">
         <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-3.jpeg" class="card-img-top" alt="...">
         </div>
     </div>
 </div>
 <div class="row mt-4 justify-content-center">
     <div class="col-md-3">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-4.webp" height="216" class="card-img-top" alt="...">
         </div>
     </div>
     <?php
@@ -109,9 +117,9 @@ $uid = $_SESSION['uid'];
         echo 
     '<div class="col-md-3">
         <div class="card">
-                <div class="card-body">
+                <div class="card-body mb-4">
                     <h5 class="card-title">Sign Up</h5>
-                    <p class="card-text">Click the button below to sign up for event notifications!</p>
+                    <p class="card-text">Click the button below to sign up for information & news about upcoming events!</p>
                     <button class="btn btn-primary" onclick="signUp()">Sign Up</button>
                 </div>
         </div>
@@ -130,44 +138,24 @@ $uid = $_SESSION['uid'];
     ?>
     <div class="col-md-3">
         <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-5.jpeg" height="216" class="card-img-top" alt="...">
         </div>
     </div>
 </div>
 <div class="row mt-4 justify-content-center">
     <div class="col-md-3">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-6.webp" height="216" class="card-img-top" alt="...">
         </div>
     </div>
     <div class="col-md-3">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-7.png" height="216" class="card-img-top" alt="...">
         </div>
     </div>
     <div class="col-md-3">
         <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <img src="../assets/eco-event-8.jpg" height="216" class="card-img-top" alt="...">
         </div>
     </div>
 </div>
@@ -182,6 +170,7 @@ $uid = $_SESSION['uid'];
             url: "../utils/event_manager.php",
             success: function(response) {
                 alert("You have successfully subscribed!");
+                location.reload()
             },
             error: function(error) {
                 console.log("error", error);
@@ -199,6 +188,7 @@ $uid = $_SESSION['uid'];
             url: "../utils/event_manager.php",
             success: function(response) {
                 alert("You have successfully unsubscribed!");
+                location.reload()
             },
             error: function(error) {
                 console.log("error", error);

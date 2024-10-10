@@ -18,10 +18,31 @@ if (isset($_SESSION['uid'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
     <style> body {font-family:"Maven Pro", sans-serif;}</style>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+    const htmlElement = document.documentElement;
+    const switchElement = document.getElementById('darkModeSwitch');
+
+    // Set the default theme to dark if no setting is found in local storage
+    const currentTheme = localStorage.getItem('bsTheme') || 'dark';
+    htmlElement.setAttribute('data-bs-theme', currentTheme);
+    switchElement.checked = currentTheme === 'dark';
+
+    switchElement.addEventListener('change', function () {
+        if (this.checked) {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('bsTheme', 'dark');
+        } else {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('bsTheme', 'light');
+        }
+    });
+});
+    </script>
 </head>
 <body>
 <div class="container">
-<nav class="navbar navbar-expand-lg maven-pro sticky-top bg-white" style="font-size:larger">
+<nav class="navbar navbar-expand-lg maven-pro sticky-top" style="font-size:larger">
         <div class="container">
             <a class="navbar-brand" href="../index.php">
                 <img src="../assets/environment-icon.svg" alt="logo" width="56" height="56">
@@ -42,10 +63,26 @@ if (isset($_SESSION['uid'])) {
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
+                <?php
+                  if(!isset($_SESSION['uid'])) {
+                    echo '
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a class="nav-link" href="pages/login.php">Login</a>
+                    </li>';
+                  } else {
+                    echo '<ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="utils/logout.php">Log Out</a>
+                    </li>';
+                  } ?>
+                    <li class="nav-item ps-2">
+                      <!-- Bootstrap 5 switch -->
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
+                        <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+                      </div>
                     </li>
-                </ul>
+                  </ul>
             </div>
         </div>
 </nav>
