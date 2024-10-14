@@ -17,6 +17,8 @@ if (isset($_SESSION['uid'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <style> body {font-family:"Maven Pro", sans-serif;}</style>
     <script>
       document.addEventListener('DOMContentLoaded', (event) => {
@@ -63,25 +65,25 @@ if (isset($_SESSION['uid'])) {
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
-                <?php
-                  if(!isset($_SESSION['uid'])) {
-                    echo '
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/login.php">Login</a>
-                    </li>';
-                  } else {
-                    echo '<ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="utils/logout.php">Log Out</a>
-                    </li>';
-                  } ?>
-                    <li class="nav-item ps-2">
+                <li class="nav-item align-self-center ps-2 me-3 mt-2">
                       <!-- Bootstrap 5 switch -->
                       <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
                         <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
                       </div>
                     </li>
+                <?php
+                  if(!isset($_SESSION['uid'])) {
+                    echo '
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>';
+                  } else {
+                    echo '
+                    <li class="nav-item">
+                        <a href="account.php"><i style="font-size: 3rem; color: #489f3a;" class="bi bi-person-circle"></i></a>
+                    </li>';
+                  } ?>
                   </ul>
             </div>
         </div>

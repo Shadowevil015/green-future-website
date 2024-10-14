@@ -18,3 +18,5 @@ $statement->execute();
 
 $statement->close();
 $conn->close();
+
+header("Location: ../pages/login.php");

@@ -1,7 +1,11 @@
 <?php
+session_start();
 
-// TO-DO commit footprint to db and add "last calculation" to calc page
 include "db_connection.php";
+
+$uid = $_SESSION['uid'];
+
+$conn = OpenCon();
 
 $mileage = $_POST['mileage'];
 $flights = $_POST['flights'];
@@ -16,6 +20,14 @@ $totalEmissions = $housingEmissions + $travelEmissions;
 
 $carbonFootprint = $totalEmissions / 1000;
 
+$statement = $conn->prepare('UPDATE accounts SET carbon_footprint = ? WHERE  uid = ?');
+$statement->bind_param('si', $carbonFootprint, $uid);
 
+$statement->execute();
+
+$statement->close();
+$conn->close();
+
+$_SESSION['carbonFootprint'] = $carbonFootprint;
 
 echo $carbonFootprint;

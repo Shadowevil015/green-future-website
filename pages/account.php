@@ -1,16 +1,15 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['uid'])) {
-    header('Location: login.php');
-}
-
-$uid = $_SESSION['uid'];
+$firstName = $_SESSION['firstName'];
+$lastName = $_SESSION['lastName'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Future</title>
@@ -63,7 +62,7 @@ $uid = $_SESSION['uid'];
                         <a class="nav-link" href="calculator.php">Carbon Footprint Calculator</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Events</a>
+                        <a class="nav-link" href="events.php">Events</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -83,122 +82,80 @@ $uid = $_SESSION['uid'];
                   } else {
                     echo '
                     <li class="nav-item">
-                        <a href="account.php"><i style="font-size: 3rem; color: #489f3a;" class="bi bi-person-circle"></i></a>
+                        <a href="#"><i style="font-size: 3rem; color: #489f3a;" class="bi bi-person-circle"></i></a>
                     </li>';
                   } ?>
                   </ul>
             </div>
         </div>
 </nav>
-<h2 class="p-3">Upcoming Green Future Events</h2>
-<div class="row mt-4 justify-content-center">
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-1.jpg" class="card-img" alt="...">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-2.jpeg" height="202.66" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card" >
-            <img src="../assets/eco-event-3.jpeg" class="card-img-top" alt="...">
-        </div>
-    </div>
-</div>
-<div class="row mt-4 justify-content-center">
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-4.webp" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <?php
-    if ($_SESSION['eventSubscribed'] === 0 | $_SESSION['eventSubscribed'] === null) {
-        echo 
-    '<div class="col-md-3">
-        <div class="card">
-                <div class="card-body mb-4">
-                    <h5 class="card-title">Sign Up</h5>
-                    <p class="card-text">Click the button below to sign up for information & news about upcoming events!</p>
-                    <button class="btn btn-primary" onclick="signUp()">Sign Up</button>
-                </div>
-        </div>
-    </div>';} else {
-        echo
-    '<div class="col-md-3">
-        <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Unsubscribe</h5>
-                    <p class="card-text">Click the button below to unsubscribe for event notifications!</p>
-                    <button class="btn btn-primary" onclick="unSub()">Unsubscribe</button>
-                </div>
-        </div>
-    </div>';
-    }
-    ?>
-    <div class="col-md-3">
-        <div class="card" >
-            <img src="../assets/eco-event-5.jpeg" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-</div>
-<div class="row mt-4 justify-content-center">
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-6.webp" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-7.png" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card" >
-            <img src="../assets/eco-event-8.jpg" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-</div>
 
+<div class="parent-container d-flex">
+    <div class="container w-25">
+        <div class="row">
+            <div class="col">
+                <ul class="nav flex-column nav-pills mt-5">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="background-color: #489f3a;" aria-current="page" href="#">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="mt-4 ms-2">Account Management</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">First Name</th>
+                    <td><?php echo $firstName;?></td>
+                    <td>Edit</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Last Name</th>
+                    <td><?php echo $lastName;?></td>
+                    <td>Edit</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
 </div>
-<script>
-    function signUp() {
-        let formData = {"value": 1}
-        $.ajax({
-            type: "POST",
-            data: formData,
-            url: "../utils/event_manager.php",
-            success: function(response) {
-                alert("You have successfully subscribed!");
-                location.reload()
-            },
-            error: function(error) {
-                console.log("error", error);
-                alert("error")
-            }
-        })
-
-    }
-
-    function unSub() {
-        let formData = {"value": 2}
-        $.ajax({
-            type: "POST",
-            data: formData,
-            url: "../utils/event_manager.php",
-            success: function(response) {
-                alert("You have successfully unsubscribed!");
-                location.reload()
-            },
-            error: function(error) {
-                console.log("error", error);
-                alert("error")
-            }
-        })
-    }
-</script>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </body>
+</html>

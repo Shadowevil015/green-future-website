@@ -12,6 +12,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script>
       document.addEventListener('DOMContentLoaded', (event) => {
@@ -61,6 +62,13 @@ session_start();
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
+                <li class="nav-item align-self-center ps-2 me-3 mt-2">
+                      <!-- Bootstrap 5 switch -->
+                      <div class="form-check form-switch">
+                      <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+                      <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
+                      </div>
+                    </li>
                 <?php
                   if(!isset($_SESSION['uid'])) {
                     echo '
@@ -68,18 +76,11 @@ session_start();
                         <a class="nav-link" href="pages/login.php">Login</a>
                     </li>';
                   } else {
-                    echo '<ul class="navbar-nav ms-auto">
+                    echo '
                     <li class="nav-item">
-                        <a class="nav-link" href="utils/logout.php">Log Out</a>
+                        <a href="pages/account.php"><i style="font-size: 3rem; color: #489f3a;" class="bi bi-person-circle"></i></a>
                     </li>';
                   } ?>
-                    <li class="nav-item ps-2">
-                      <!-- Bootstrap 5 switch -->
-                      <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
-                        <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
-                      </div>
-                    </li>
                   </ul>
             </div>
         </div>
