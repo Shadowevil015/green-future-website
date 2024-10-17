@@ -84,7 +84,7 @@ if (!isset($_SESSION['uid'])) {
                   } else {
                     echo '
                     <li class="nav-item">
-                        <a href="pages/account.php"><i style="font-size: 3rem; color: #489f3a;" class="bi bi-person-circle"></i></a>
+                        <a href="account.php"><i style="font-size: 3rem; color: #489f3a;" class="bi bi-person-circle"></i></a>
                     </li>';
                   } ?>
                   </ul>
@@ -152,7 +152,7 @@ if (!isset($_SESSION['uid'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         
-        $(document).ready(function () {
+$(document).ready(function () {
     $("form").submit(function (event) {
       let formData = {
           mileage: $(mileage).val(),

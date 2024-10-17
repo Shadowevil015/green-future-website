@@ -20,7 +20,7 @@ $totalEmissions = $housingEmissions + $travelEmissions;
 
 $carbonFootprint = $totalEmissions / 1000;
 
-$statement = $conn->prepare('UPDATE accounts SET carbon_footprint = ? WHERE  uid = ?');
+$statement = $conn->prepare('INSERT INTO carbon_footprints (footprint, user_uid) VALUES (?, ?)');
 $statement->bind_param('si', $carbonFootprint, $uid);
 
 $statement->execute();
