@@ -22,6 +22,11 @@ $email = $_SESSION['email'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" href="/favicon/favicon-48x48.png" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
 
     <style> body {font-family:"Maven Pro", sans-serif;} .active {--bs-nav-pills-link-active-bg: #489f3a !important;}</style>
     <script>
@@ -104,13 +109,6 @@ $email = $_SESSION['email'];
                     <li class="nav-item carbon">
                         <a onclick="return false;" id="carb" class="nav-link" href="" >Carbon History</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

@@ -20,6 +20,11 @@ $uid = $_SESSION['uid'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" href="/favicon/favicon-48x48.png" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
 
     <style> body {font-family:"Maven Pro", sans-serif;}</style>
     <script>
@@ -90,82 +95,116 @@ $uid = $_SESSION['uid'];
             </div>
         </div>
 </nav>
-<h2 class="p-3">Upcoming Green Future Events</h2>
-<div class="row mt-4 justify-content-center">
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-1.jpg" class="card-img" alt="...">
-        </div>
+    <h3 class="mt-3">Upcoming Environmental Events</h3>
+    <div class="row mt-5">
+<?php if ($_SESSION['event1'] === 0 | $_SESSION['event1'] === null) {
+  echo '
+  <div class="col-md-3 mb-3">
+    <div class="card">
+        <img src="../assets/eco-event-3.jpeg" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Eco Festival 25\'</h5>
+        <p class="card-text">Sign up for more information and updates about our Eco Festival!</p>
+        <button class="btn btn-primary" onclick="signUp(1)">Click to Subscribe!</button>
+      </div>
     </div>
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-2.jpeg" height="202.66" class="card-img-top" alt="...">
-        </div>
+  </div>';
+} else {
+  echo '
+  <div class="col-md-3 mb-3">
+    <div class="card">
+        <img src="../assets/eco-event-3.jpeg" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Eco Festival 25\'</h5>
+        <p class="card-text">Sign up for more information and updates about our Eco Festival!</p>
+        <button class="btn btn-primary disabled">You\'re already subscribed!</button>
+      </div>
     </div>
-    <div class="col-md-3">
-        <div class="card" >
-            <img src="../assets/eco-event-3.jpeg" class="card-img-top" alt="...">
-        </div>
+  </div>';
+}
+if ($_SESSION['event2'] === 0 | $_SESSION['event2'] === null) {
+  echo '
+  <div class="col-md-3">
+    <div class="card">
+    <img src="../assets/eco-event-6.webp" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Eco Con 25\'</h5>
+        <p class="card-text">Eco Con 25\' is approaching fast! Subscribe for more info & updates!</p>
+        <button class="btn btn-primary" onclick="signUp(2)">Click to Subscribe!</button>
+      </div>
     </div>
+  </div>';
+} else {
+  echo '
+  <div class="col-md-3">
+    <div class="card">
+    <img src="../assets/eco-event-6.webp" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Eco Con 25\'</h5>
+        <p class="card-text">Eco Con 25\' is approaching fast! Subscribe for more info & updates!</p>
+        <button class="btn btn-primary disabled">You\'re already subscribed!</button>
+      </div>
+    </div>
+  </div>';
+}
+if ($_SESSION['event3'] === 0 | $_SESSION['event3'] === null) {
+  echo '
+  <div class="col-md-3">
+    <div class="card">
+    <img src="../assets/eco-event-8.jpg" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Weekly Eco Activity Day</h5>
+        <p class="card-text">Join the fun in the weekly eco fun day! Runs every Tuesday!</p>
+        <button class="btn btn-primary" onclick="signUp(3)">Click to Subscribe!</button>
+      </div>
+    </div>
+  </div>';
+} else {
+  echo '
+  <div class="col-md-3">
+    <div class="card">
+    <img src="../assets/eco-event-8.jpg" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Weekly Eco Activity Day</h5>
+        <p class="card-text">Join the fun in the weekly eco fun day! Runs every Tuesday!</p>
+        <button class="btn btn-primary disabled">You\'re already subscribed!</button>
+      </div>
+    </div>
+  </div>';
+}
+if ($_SESSION['event4'] === 0 | $_SESSION['event4'] === null) {
+  echo '
+  <div class="col-md-3">
+    <div class="card">
+    <img src="../assets/eco-event-1.jpg" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Daily Treehugger Event</h5>
+        <p class="card-text">Join us between 5-8pm every day for a treehugging get together!</p>
+        <button class="btn btn-primary" onclick="signUp(4)">Click to Subscribe!</button>
+      </div>
+    </div>
+  </div>';
+} else {
+  echo '
+  <div class="col-md-3">
+    <div class="card">
+    <img src="../assets/eco-event-1.jpg" height="259" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Daily Treehugger Event</h5>
+        <p class="card-text">Join us between 5-8pm every day for a treehugging get together!</p>
+        <button class="btn btn-primary disabled">You\'re already subscribed!</button>
+      </div>
+    </div>
+  </div>';
+}?>
 </div>
-<div class="row mt-4 justify-content-center">
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-4.webp" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <?php
-    if ($_SESSION['eventSubscribed'] === 0 | $_SESSION['eventSubscribed'] === null) {
-        echo 
-    '<div class="col-md-3">
-        <div class="card">
-                <div class="card-body mb-4">
-                    <h5 class="card-title">Sign Up</h5>
-                    <p class="card-text">Click the button below to sign up for information & news about upcoming events!</p>
-                    <button class="btn btn-primary" onclick="signUp()">Sign Up</button>
-                </div>
-        </div>
-    </div>';} else {
-        echo
-    '<div class="col-md-3">
-        <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Unsubscribe</h5>
-                    <p class="card-text">Click the button below to unsubscribe for event notifications!</p>
-                    <button class="btn btn-primary" onclick="unSub()">Unsubscribe</button>
-                </div>
-        </div>
-    </div>';
-    }
-    ?>
-    <div class="col-md-3">
-        <div class="card" >
-            <img src="../assets/eco-event-5.jpeg" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-</div>
-<div class="row mt-4 justify-content-center">
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-6.webp" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <img src="../assets/eco-event-7.png" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card" >
-            <img src="../assets/eco-event-8.jpg" height="216" class="card-img-top" alt="...">
-        </div>
-    </div>
-</div>
-
 </div>
 <script>
-    function signUp() {
-        let formData = {"value": 1}
+    function signUp(type) {
+        let formData = {
+          "type": type,
+          "signUp": 1
+        }
         $.ajax({
             type: "POST",
             data: formData,
@@ -180,23 +219,6 @@ $uid = $_SESSION['uid'];
             }
         })
 
-    }
-
-    function unSub() {
-        let formData = {"value": 2}
-        $.ajax({
-            type: "POST",
-            data: formData,
-            url: "../utils/event_manager.php",
-            success: function(response) {
-                alert("You have successfully unsubscribed!");
-                location.reload()
-            },
-            error: function(error) {
-                console.log("error", error);
-                alert("error")
-            }
-        })
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
