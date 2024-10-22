@@ -109,6 +109,9 @@ $email = $_SESSION['email'];
                     <li class="nav-item carbon">
                         <a onclick="return false;" id="carb" class="nav-link" href="" >Carbon History</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../utils/logout.php">Log Out</a>
+                    </li>
             </div>
         </div>
     </div>
