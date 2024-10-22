@@ -10,13 +10,13 @@ if (($email === "" || $password === "")) {
     exit("Please fill out both fields!");
 }
 
-if ($statement = $conn->prepare("SELECT uid, password, event_subscribed, first_name, last_name FROM accounts WHERE email_address = ?")) {
+if ($statement = $conn->prepare("SELECT uid, password, first_name, last_name FROM accounts WHERE email_address = ?")) {
     $statement->bind_param('s', $email);
     $statement->execute();
     $statement->store_result();
 
     if ($statement->num_rows > 0) {
-        $statement->bind_result($uid, $passworddb, $eventSubscribed, $firstName, $lastName);
+        $statement->bind_result($uid, $passworddb, $firstName, $lastName);
         $statement->fetch();
 
         if (password_verify($password, $passworddb)) {
@@ -25,7 +25,6 @@ if ($statement = $conn->prepare("SELECT uid, password, event_subscribed, first_n
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['email'] = $email;
             $_SESSION['uid'] = $uid;
-            $_SESSION['eventSubscribed'] = $eventSubscribed;
             $_SESSION['firstName'] = $firstName;
             $_SESSION['lastName'] = $lastName;
             header('Location: ../index.php');
